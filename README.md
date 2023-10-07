@@ -105,8 +105,44 @@ int main() {
 - Use object-oriented principles to design each module.
 - Write clean, modular, and well-documented code.
 
-### Your Role:
+### Core Modules
 
-- Since you want to be hands-on during the debugging phase, your role will be to review the code, test it, and debug any issues that arise.
+- Game Engine: The core class which runs the engine
+- Rendering Engine: The class which uses SDL to initialize and render the window
 
-Shall we proceed with the Core Module implementation, or do you have any modifications or suggestions before we start?
+### Modules
+
+Great! Now that we have the core and rendering modules set up, we can proceed with the following modules:
+
+### 1. **Input Handling Module:**
+
+- This module will handle user inputs from various devices like keyboard, mouse, or game controllers.
+- We can create classes like `InputManager` to abstract the input handling process.
+
+### 2. **Audio Module:**
+
+- Implementing an audio module using OpenAL or another suitable library to play background music, sound effects, etc.
+- We can create classes like `AudioManager` to manage audio resources and playback.
+
+### 3. **Physics Module:**
+
+- Implementing basic 2D physics for movement, collision detection, and response.
+- We might need classes for `RigidBody`, `Collider`, etc.
+
+### 4. **Scene Management:**
+
+- Implementing a system to manage different game scenes or levels.
+- Classes like `SceneManager`, `Scene`, or `GameObject` might be necessary.
+
+### 5. **Asset Management:**
+
+- Developing a system to efficiently load, store, and retrieve game assets like textures, audio files, etc.
+- Consider creating an `AssetManager` class for this purpose.
+
+### 6. **GUI System:**
+
+- Implementing a system for creating and managing in-game user interfaces, menus, buttons, etc.
+
+### 7. **Scripting (Optional):**
+
+- The engine will use Lua for scripting.
