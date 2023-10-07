@@ -1,3 +1,6 @@
+// src/GameEngine.cpp
+// Author: Kian Dadkhah
+
 #include <iostream>
 #include "GameEngine.h"
 

@@ -1,3 +1,7 @@
+// src/GameEngine.h
+// author: Kian Dadkhah
+// Version: 1.0.0
+
 #pragma once
 
 namespace BombasticEngine {
