@@ -21,6 +21,9 @@ public:
     // RenderTexture: Loads and renders a texture from a given file path at the specified (x, y) coordinates.
     void RenderTexture(const std::string& filePath, int x, int y);
 
+    // isValid: Returns true if the engine is initialized successfully.
+    bool isValid() const;
+
 private:
     SDL_Window* window;    // Pointer to the SDL_Window object representing the window created.
     SDL_Renderer* renderer; // Pointer to the SDL_Renderer object for rendering textures.

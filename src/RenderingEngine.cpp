@@ -72,4 +72,9 @@ namespace BombasticEngine {
     SDL_DestroyTexture(texture);
   }
 
+  // isValid implementation
+  bool RenderingEngine::isValid() const {
+    return window != nullptr && renderer != nullptr;
+  }
+
 } // namespace BombasticEngine
