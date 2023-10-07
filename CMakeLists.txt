@@ -8,7 +8,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add the executable
-add_executable(BombasticEngine src/main.cpp src/GameEngine.cpp)
+add_executable(
+  BombasticEngine
+  src/main.cpp
+  src/GameEngine.cpp
+  # src/RenderingEngine.cpp
+  src/InputManager.cpp  
+)
 
 # Find packages
 find_package(SDL2 REQUIRED)

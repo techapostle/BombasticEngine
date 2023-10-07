@@ -23,10 +23,10 @@ namespace BombasticEngine {
       bool isKeyPressed(SDL_Scancode key) const;
 
     private:
-      // Stores the current state of each key.
-      const Uint8* keyState;
+      // Map of key codes to their current state. 
+      std::unordered_map<SDL_Scancode, bool> keyMap;
 
-      // Stores the number f keys in the keyState array.
-      int numKeys;
+      // Event handler for capturing user inputs.
+      SDL_Event event;
   };
 } // namespae BombasticEngine

@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "InputManager.h"
+
 namespace BombasticEngine {
 
 // The GameEngine class serves as the main controller for the Bombastic Engine.
@@ -26,6 +28,12 @@ private:
     // Shutdown: Cleans up resources and performs necessary tasks to safely terminate the engine.
     // This method should be called at the end of the engine's lifecycle.
     void Shutdown();
+    
+    // InputManager instance: Handles user inputs from various devices.
+    InputManager inputManager;
+
+    SDL_Window* window;      // SDL Window
+    SDL_Renderer* renderer;  // SDL Renderer
 };
 
 } // namespace BombasticEngine
