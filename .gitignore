@@ -16,3 +16,21 @@ CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
+
+# Ignore cache
+/.cache/
+
+# Ignore logs
+*.log
+
+# Ignore generated files
+*.gen.*
+
+# Ignore Visual Studio files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Ignore vscode files
+.vscode/
