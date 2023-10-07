@@ -53,13 +53,14 @@ namespace BombasticEngine {
     // Load an image from the specified file path into an SDL_Surface object; return if it fails.
     SDL_Surface* loadedSurface = IMG_Load(filePath.c_str());
     if (!loadedSurface) {
-        std::cerr << "Unable to load image " << filePath << "! SDL_image Error: " << IMG_GetError() << std::endl;
+      std::cerr << "Unable to load image " << filePath << "! SDL_image Error: " << IMG_GetError() << std::endl;
       return;
     }
     // Create an SDL_Texture from the loaded SDL_Surface; return if it fails.
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
     if (!texture) {
-      std::cout << "Failed to create texture from surface" << std::endl;
+      std::cerr << "Unable to create texture from " << filePath << "! SDL Error: " << SDL_GetError() << std::endl;
+
       //TODO: Throw an exception
       return;
     }
