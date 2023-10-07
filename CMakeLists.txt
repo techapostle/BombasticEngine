@@ -12,18 +12,18 @@ add_executable(
   BombasticEngine
   src/main.cpp
   src/GameEngine.cpp
-  # src/RenderingEngine.cpp
+  src/RenderingEngine.cpp
   src/InputManager.cpp  
 )
 
 # Find packages
 find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
+find_package(SDL2_image REQUIRED NO_MODULE)
 
 # Include directories
 target_include_directories(BombasticEngine PUBLIC "${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/include")
 include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 
-# If we have libraries to link, use target_link_libraries
-# target_link_libraries(BombasticEngine name_of_library)
-target_link_libraries(BombasticEngine ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+# Link libraries
+target_link_libraries(BombasticEngine ${SDL2_LIBRARIES} SDL2_image)
+

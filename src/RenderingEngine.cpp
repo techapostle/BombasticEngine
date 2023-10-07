@@ -2,6 +2,7 @@
 // author: Kian Dadkhah
 
 #include "RenderingEngine.h"
+#include <SDL2/SDL_image.h>
 #include <iostream>
 
 namespace BombasticEngine {
