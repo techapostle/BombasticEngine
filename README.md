@@ -19,7 +19,7 @@ Creating a game engine is a substantial project, and it's important to approach 
 
 3. **Development Environment:** Visual Studio or Code::Blocks with the necessary libraries installed.
 
-### Phase 2: Implementation
+### Phase 2: Implementation (CURRENT)
 
 1. **Core Module:**
 
@@ -53,51 +53,6 @@ Creating a game engine is a substantial project, and it's important to approach 
 
 - Document the engine's architecture, modules, and usage.
 - Plan for future features and improvements, including 3D support.
-
-### Next Steps:
-
-- Set up your development environment and install the necessary libraries.
-- Start with the implementation of the Core Module.
-
-### Core Module Example Code:
-
-Below is a simplified example of how you might start coding the Core Module:
-
-```cpp
-#include <iostream>
-
-class GameEngine {
-public:
-    void Start() {
-        Initialize();
-        GameLoop();
-        Shutdown();
-    }
-
-private:
-    void Initialize() {
-        std::cout << "Initialization code here" << std::endl;
-    }
-
-    void GameLoop() {
-        std::cout << "Main game loop here" << std::endl;
-        while (true) {
-            // Update and render game
-            // Break the loop when the game ends
-        }
-    }
-
-    void Shutdown() {
-        std::cout << "Shutdown code here" << std::endl;
-    }
-};
-
-int main() {
-    GameEngine engine;
-    engine.Start();
-    return 0;
-}
-```
 
 ### Implementation Details:
 
