@@ -79,4 +79,14 @@ namespace BombasticEngine {
     return window != nullptr && renderer != nullptr;
   }
 
+  // getWidth implementation
+  int RenderingEngine::getWidth() const {
+    return width;
+  }
+
+  // getHeight implementation
+  int RenderingEngine::getHeight() const {
+    return height;
+  }
+
 } // namespace BombasticEngine

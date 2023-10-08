@@ -5,7 +5,7 @@
 #include "GameEngine.h"
 
 int main() {
-  BombasticEngine::GameEngine engine;
+  BombasticEngine::GameEngine engine(800, 600);
   engine.Start();
 
   return 0;

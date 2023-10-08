@@ -6,6 +6,9 @@
 
 namespace BombasticEngine {
 
+  // Constructor implementation
+  GameEngine::GameEngine(int width, int height) : renderingEngine(width, height) {}
+
   // The Start method is the entry point of the engine.
   // It sequentially calls Initialize, GameLoop, and Shutdown methods to control the engine's lifecycle.
   void GameEngine::Start() {
@@ -19,28 +22,33 @@ namespace BombasticEngine {
   void GameEngine::Initialize() {
     std::cout << "Bombastic Engine Initialized!" << std::endl;
 
-    // Initialize the SDL and all of its subsystems.
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-      std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
+    if (!renderingEngine.isValid()) {
+      std::cerr << "Rendering Engine could not be created! SDL Error: " << SDL_GetError() << std::endl;
       return;
     }
 
-    // Create an SDL window
-    window = SDL_CreateWindow("Bombastic Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
-    if (!window) {
-      std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << std::endl;
-      SDL_Quit();
-      return;
-    }
+    // // Initialize the SDL and all of its subsystems.
+    // if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    //   std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
+    //   return;
+    // }
 
-    // Create an SDL renderer
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (!renderer) {
-      std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
-      SDL_DestroyWindow(window);
-      SDL_Quit();
-      return;
-    }
+    // // Create an SDL window
+    // window = SDL_CreateWindow("Bombastic Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, renderingEngine.getWidth(), renderingEngine.getHeight(), SDL_WINDOW_SHOWN);
+    // if (!window) {
+    //   std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << std::endl;
+    //   SDL_Quit();
+    //   return;
+    // }
+
+    // // Create an SDL renderer
+    // renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    // if (!renderer) {
+    //   std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
+    //   SDL_DestroyWindow(window);
+    //   SDL_Quit();
+    //   return;
+    // }
   }
 
   // The GameLoop method contains the main loop where the game logic, updates, and rendering occur.
@@ -75,13 +83,6 @@ namespace BombasticEngine {
   // It outputs a message to the console indicating the engine is shutting down.
   void GameEngine::Shutdown() {
     std::cout << "Bombastic Engine Shutdown!" << std::endl;
-
-    // Destroy the renderer and window.
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-
-    // Quit SDL.
-    SDL_Quit();
   }
 
 } // namespace BombasticEngine

@@ -24,9 +24,18 @@ public:
     // isValid: Returns true if the engine is initialized successfully.
     bool isValid() const;
 
+    // Get functions
+    // getWidth: Returns the width of the window.
+    int getWidth() const;
+    // getHeight: Returns the height of the window.
+    int getHeight() const;
+
 private:
     SDL_Window* window;    // Pointer to the SDL_Window object representing the window created.
     SDL_Renderer* renderer; // Pointer to the SDL_Renderer object for rendering textures.
+
+    int width;  // Width of the window.
+    int height; // Height of the window.
 };
 
 } // namespace BombasticEngine

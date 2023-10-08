@@ -5,6 +5,7 @@
 #pragma once
 
 #include "InputManager.h"
+#include "RenderingEngine.h"
 
 namespace BombasticEngine {
 
@@ -12,6 +13,9 @@ namespace BombasticEngine {
 // It is responsible for initializing, running, and shutting down the engine.
 class GameEngine {
 public:
+    // Constructor: Initializes the engine.
+    GameEngine(int width, int height);
+
     // Start: Public method to initiate the engine's processes.
     // This method acts as a controller that calls the private methods in sequence.
     void Start();
@@ -31,9 +35,8 @@ private:
     
     // InputManager instance: Handles user inputs from various devices.
     InputManager inputManager;
-
-    SDL_Window* window;      // SDL Window
-    SDL_Renderer* renderer;  // SDL Renderer
+    // RenderingEngine instance: Initializes SDL, creates a window, and renders textures.
+    RenderingEngine renderingEngine;
 };
 
 } // namespace BombasticEngine
