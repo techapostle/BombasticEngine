@@ -34,10 +34,17 @@ namespace BombasticEngine {
     std::cout << "Game Loop Started!" << std::endl;
     bool isRunning = true;
     while (isRunning) {
-      inputManager.update();  // Update the input manager.
-      // TODO: Implement the update and rendering logic for the game here.
       // This loop will continue running until it's explicitly broken out of.
 
+      // Rendering logic
+      renderingEngine.clear();  // Clear the renderer.
+      // For now, we will just render a single texture to the screen.
+      renderingEngine.RenderTexture("../src/assets/obama.png", 0, 0);
+      renderingEngine.display();  // Display the renderer.
+      renderingEngine.delay(16);  // Add a delay to cap the frame rate.
+      
+      // Input logic
+      inputManager.update();  // Update the input manager.
       // Break out of the loop when the user presses the ESC key.
       if (inputManager.isKeyPressed(SDL_SCANCODE_ESCAPE)) {
         isRunning = false;

@@ -61,14 +61,12 @@ namespace BombasticEngine {
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
     if (!texture) {
       std::cerr << "Unable to create texture from " << filePath << "! SDL Error: " << SDL_GetError() << std::endl;
-
-      //TODO: Throw an exception
       return;
     }
     // Define a rectangle for rendering the texture, with the specified (x, y) coordinates and the width and height of the loaded surface.
     SDL_Rect renderQuad = { x, y, loadedSurface->w, loadedSurface->h };
     // Render the texture to the screen at the specified rectangle.
-    SDL_RenderCopy(renderer, texture, nullptr, &renderQuad);
+    SDL_RenderCopy(renderer, texture, NULL, &renderQuad);
 
     // Clean up the texture.
     SDL_DestroyTexture(texture);
@@ -87,6 +85,27 @@ namespace BombasticEngine {
   // getHeight implementation
   int RenderingEngine::getHeight() const {
     return height;
+  }
+  
+  // ... Other methods ...
+
+  // clear implementation
+  void RenderingEngine::clear() const {
+    // Set the color used for drawing operations to black.
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    // Clear the renderer, preparing it for new drawing operations.
+    SDL_RenderClear(renderer);
+  }
+
+  // display implementation
+  void RenderingEngine::display() const {
+    // Update the window with the rendering performed since the last call.
+    SDL_RenderPresent(renderer);
+  }
+
+  // delay implementation
+  void RenderingEngine::delay(int milliseconds) const {
+    SDL_Delay(milliseconds);
   }
 
 } // namespace BombasticEngine

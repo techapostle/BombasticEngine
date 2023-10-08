@@ -29,6 +29,15 @@ public:
     int getWidth() const;
     // getHeight: Returns the height of the window.
     int getHeight() const;
+    
+    // ... Other methods ...
+
+    // Clears the renderer, preparing it for new drawing operations with SDL's SDL_RenderClear function.
+    void clear() const;
+    // Display the renderer, updating the window with the drawn content with SDL's SDL_RenderPresent function.
+    void display() const;
+    // Function to add a delay to cap the frame rate.
+    void delay(int milliseconds) const;
 
 private:
     SDL_Window* window;    // Pointer to the SDL_Window object representing the window created.
