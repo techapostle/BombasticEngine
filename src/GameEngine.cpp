@@ -26,29 +26,6 @@ namespace BombasticEngine {
       std::cerr << "Rendering Engine could not be created! SDL Error: " << SDL_GetError() << std::endl;
       return;
     }
-
-    // // Initialize the SDL and all of its subsystems.
-    // if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-    //   std::cerr << "SDL could not initialize! SDL Error: " << SDL_GetError() << std::endl;
-    //   return;
-    // }
-
-    // // Create an SDL window
-    // window = SDL_CreateWindow("Bombastic Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, renderingEngine.getWidth(), renderingEngine.getHeight(), SDL_WINDOW_SHOWN);
-    // if (!window) {
-    //   std::cerr << "Window could not be created! SDL Error: " << SDL_GetError() << std::endl;
-    //   SDL_Quit();
-    //   return;
-    // }
-
-    // // Create an SDL renderer
-    // renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    // if (!renderer) {
-    //   std::cerr << "Renderer could not be created! SDL Error: " << SDL_GetError() << std::endl;
-    //   SDL_DestroyWindow(window);
-    //   SDL_Quit();
-    //   return;
-    // }
   }
 
   // The GameLoop method contains the main loop where the game logic, updates, and rendering occur.
@@ -61,8 +38,6 @@ namespace BombasticEngine {
       // TODO: Implement the update and rendering logic for the game here.
       // This loop will continue running until it's explicitly broken out of.
 
-      // std::cout << "Game Loop Running!" << std::endl;
-      
       // Break out of the loop when the user presses the ESC key.
       if (inputManager.isKeyPressed(SDL_SCANCODE_ESCAPE)) {
         isRunning = false;
