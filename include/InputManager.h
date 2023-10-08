@@ -7,19 +7,36 @@
 #include <unordered_map>
 
 namespace BombasticEngine {
-  // The InputManager class is responsible for handling user inputs from various devices.
+  /**
+   * @brief InputManager
+   * @brief The InputManager class is responsible for capturing and processing user inputs.
+   * @brief It is a wrapper for SDL's event handling system.
+   */
   class InputManager {
     public:
-      // Constructor: Initializes the input manager.
+      /**
+       * @brief Construct a new Input Manager object
+       * 
+       */
       InputManager();
 
-      // Destructor: Cleans up resources.
+      /**
+       * @brief Destroy the Input Manager object
+       */
       ~InputManager();
 
-      // Update: Captures and processes user inputs each frame.
+      /**
+       * @brief Capture and process user inputs each frame.
+       */
       void update();
 
-      // isKeyPressed: Checks if a specific key is currently pressed.
+      /**
+       * @brief Check if a specific key is pressed.
+       * 
+       * @param key 
+       * @return true 
+       * @return false 
+       */
       bool isKeyPressed(SDL_Scancode key) const;
 
     private:

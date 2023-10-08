@@ -12,10 +12,18 @@ namespace BombasticEngine {
    * @brief AssetManager
    * @brief The AssetManager class is responsible for loading, unloading and storing assets.
    */
-
   class AssetManager {
     public:
-      AssetManager();
+      /**
+      * @brief Constructor: Initializes the asset manager.
+      * @param renderer Pointer to the SDL_Renderer object for rendering textures.
+      */
+      AssetManager(SDL_Renderer* renderer);
+      
+      /**
+       * @brief Destroy the Asset Manager object
+       * 
+       */
       ~AssetManager();
 
     /**

@@ -9,38 +9,74 @@
 
 namespace BombasticEngine {
 
-// The RenderingEngine class is responsible for initializing SDL, creating a window, and rendering textures.
+/**
+ * @brief RenderingEngine
+ * @brief Responsible for initializing SDL, creating a window and rendering textures. 
+ */
 class RenderingEngine {
 public:
-    // Constructor: Initializes SDL, creates a window of given width and height.
+    /**
+     * @brief Construct a new Rendering Engine object
+     * 
+     * @param width set the width of the window
+     * @param height set the height of the window
+     */
     RenderingEngine(int width, int height);
     
-    // Destructor: Cleans up SDL resources.
+    /**
+     * @brief Destroy the Rendering Engine object
+     */
     ~RenderingEngine();
     
-    // RenderTexture: Loads and renders a texture from a given file path at the specified (x, y) coordinates.
+    /**
+     * @brief Renders a texture at a specified position from the given file path.
+     * 
+     * @param filePath String containing the file path to the texture.
+     * @param x Position on the x-axis.
+     * @param y Position on the y-axis.
+     */
     void RenderTexture(const std::string& filePath, int x, int y);
 
-    // isValid: Returns true if the engine is initialized successfully.
+    /**
+     * @brief Returns true if the engine is initialized successfully, false otherwise.
+     * 
+     * @return true 
+     * @return false 
+     */
     bool isValid() const;
 
-    // Get functions
-    // getWidth: Returns the width of the window.
+    /**
+     * @brief Get the Width object
+     * 
+     * @return int Width of the window.
+     */
     int getWidth() const;
-    // getHeight: Returns the height of the window.
+
+    /**
+     * @brief Get the Height object
+     * 
+     * @return int Height of the window.
+     */
     int getHeight() const;
     
-    // ... Other methods ...
-
-    // Clears the renderer, preparing it for new drawing operations with SDL's SDL_RenderClear function.
+    /**
+    * @brief Clears the renderer, preparing it for new drawing operations with SDL's SDL_RenderClear function.
+    */
     void clear() const;
-    // Display the renderer, updating the window with the drawn content with SDL's SDL_RenderPresent function.
+
+    /**
+    * @brief Display the renderer, updating the window with the drawn content with SDL's SDL_RenderPresent function.
+    */
     void display() const;
-    // Function to add a delay to cap the frame rate.
+    
+    /**
+    * @brief Function to add a delay to cap the frame rate.
+    * @param milliseconds The number of milliseconds to delay.
+    */
     void delay(int milliseconds) const;
 
 private:
-    SDL_Window* window;    // Pointer to the SDL_Window object representing the window created.
+    SDL_Window* window;     // Pointer to the SDL_Window object representing the window created.
     SDL_Renderer* renderer; // Pointer to the SDL_Renderer object for rendering textures.
 
     int width;  // Width of the window.
