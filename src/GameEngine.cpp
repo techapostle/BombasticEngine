@@ -43,6 +43,10 @@ namespace BombasticEngine {
       renderingEngine.display();  // Display the renderer.
       renderingEngine.delay(16);  // Add a delay to cap the frame rate.
       
+      // Audio logic
+      audioManager.loadSound("Obama_Intro", "path/to/obama_intro");
+      audioManager.playSound("Obama_Intro", true);
+
       // Input logic
       inputManager.update();  // Update the input manager.
       // Break out of the loop when the user presses the ESC key.

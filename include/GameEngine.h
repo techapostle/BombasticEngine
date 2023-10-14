@@ -7,6 +7,7 @@
 #include "InputManager.h"
 #include "RenderingEngine.h"
 #include "AssetManager.h"
+#include "AudioManager.h"
 
 namespace BombasticEngine {
 /**
@@ -54,6 +55,8 @@ private:
     RenderingEngine renderingEngine;
     // AssetManager instance: Loads and stores assets.
     AssetManager assetManager;
+    // AudioManager instance: Loads and plays audio files.
+    AudioManager audioManager;
 };
 
 } // namespace BombasticEngine
