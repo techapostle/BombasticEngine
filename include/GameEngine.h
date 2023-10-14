@@ -6,6 +6,7 @@
 
 #include "InputManager.h"
 #include "RenderingEngine.h"
+#include "AssetManager.h"
 
 namespace BombasticEngine {
 /**
@@ -51,6 +52,8 @@ private:
     InputManager inputManager;
     // RenderingEngine instance: Initializes SDL, creates a window, and renders textures.
     RenderingEngine renderingEngine;
+    // AssetManager instance: Loads and stores assets.
+    AssetManager assetManager;
 };
 
 } // namespace BombasticEngine

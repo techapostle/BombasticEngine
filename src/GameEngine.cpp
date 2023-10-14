@@ -7,7 +7,7 @@
 namespace BombasticEngine {
 
   // Constructor implementation
-  GameEngine::GameEngine(int width, int height) : renderingEngine(width, height) {}
+  GameEngine::GameEngine(int width, int height) : renderingEngine(width, height), assetManager(renderingEngine.getRenderer()) {}
 
   // The Start method is the entry point of the engine.
   // It sequentially calls Initialize, GameLoop, and Shutdown methods to control the engine's lifecycle.

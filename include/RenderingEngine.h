@@ -58,6 +58,13 @@ public:
      * @return int Height of the window.
      */
     int getHeight() const;
+
+    /**
+     * @brief Get the Renderer object
+     * 
+     * @return SDL_Renderer* Pointer to the SDL_Renderer object.
+     */
+    SDL_Renderer* getRenderer() const;
     
     /**
     * @brief Clears the renderer, preparing it for new drawing operations with SDL's SDL_RenderClear function.

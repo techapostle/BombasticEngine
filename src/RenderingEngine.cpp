@@ -87,7 +87,10 @@ namespace BombasticEngine {
     return height;
   }
   
-  // ... Other methods ...
+  // getRenderer implementation
+  SDL_Renderer* RenderingEngine::getRenderer() const {
+    return renderer;
+  }
 
   // clear implementation
   void RenderingEngine::clear() const {
