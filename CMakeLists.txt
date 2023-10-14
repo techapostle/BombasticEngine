@@ -19,11 +19,20 @@ add_executable(
 # Find packages
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED NO_MODULE)
+find_package(OpenAL REQUIRED)
 
 # Include directories
-target_include_directories(BombasticEngine PUBLIC "${PROJECT_BINARY_DIR}" "${PROJECT_SOURCE_DIR}/include")
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
+target_include_directories(BombasticEngine PUBLIC 
+  "${PROJECT_BINARY_DIR}" 
+  "${PROJECT_SOURCE_DIR}/include"
+  ${SDL2_INCLUDE_DIRS}
+  ${SDL2_IMAGE_INCLUDE_DIRS}
+  ${OPENAL_INCLUDE_DIR}  # Include OpenAL headers
+)
 
 # Link libraries
-target_link_libraries(BombasticEngine ${SDL2_LIBRARIES} SDL2_image)
-
+target_link_libraries(BombasticEngine 
+  ${SDL2_LIBRARIES} 
+  SDL2_image
+  ${OPENAL_LIBRARY} 
+) 
