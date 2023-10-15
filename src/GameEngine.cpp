@@ -44,7 +44,7 @@ namespace BombasticEngine {
       renderingEngine.delay(16);  // Add a delay to cap the frame rate.
       
       // Audio logic
-      audioManager.loadSound("Obama_Intro", "path/to/obama_intro");
+      audioManager.loadSound("Obama_Sound", "../src/assets/obama_sound.wav");
       audioManager.playSound("Obama_Intro", true);
 
       // Input logic

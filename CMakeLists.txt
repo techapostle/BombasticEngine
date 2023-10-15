@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(BombastEngine)
+project(BombasticEngine)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -14,6 +14,7 @@ add_executable(
   src/GameEngine.cpp
   src/RenderingEngine.cpp
   src/InputManager.cpp  
+  src/AudioManager.cpp 
 )
 
 # Find packages
@@ -22,17 +23,23 @@ find_package(SDL2_image REQUIRED NO_MODULE)
 find_package(OpenAL REQUIRED)
 
 # Include directories
-target_include_directories(BombasticEngine PUBLIC 
-  "${PROJECT_BINARY_DIR}" 
+target_include_directories(
+  BombasticEngine
+  PUBLIC
+  "${PROJECT_BINARY_DIR}"
   "${PROJECT_SOURCE_DIR}/include"
+)
+include_directories(
   ${SDL2_INCLUDE_DIRS}
   ${SDL2_IMAGE_INCLUDE_DIRS}
-  ${OPENAL_INCLUDE_DIR}  # Include OpenAL headers
+  "/usr/include/AL"
 )
 
 # Link libraries
-target_link_libraries(BombasticEngine 
-  ${SDL2_LIBRARIES} 
+target_link_libraries(BombasticEngine
+  ${SDL2_LIBRARIES}
   SDL2_image
-  ${OPENAL_LIBRARY} 
-) 
+  ${OPENAL_LIBRARY}
+  "/usr/lib/libalut.so"
+)
+

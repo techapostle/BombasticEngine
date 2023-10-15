@@ -2,7 +2,7 @@
 
 #include "AudioManager.h"
 #include <iostream>
-#include <AL/alu.h>
+#include <AL/alut.h>
 
 namespace BombasticEngine {
 
