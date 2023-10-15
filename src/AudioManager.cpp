@@ -25,6 +25,10 @@ namespace BombasticEngine {
 
   // Initialize implementation.
   bool AudioManager::initialize() {
+    if (!alutInitWithoutContext(nullptr, nullptr)) {
+      std::cerr << "Failed to initialize ALUT: " << alutGetErrorString(alutGetError()) << std::endl;
+      return false;
+    }
     device = alcOpenDevice(nullptr);
     if (!device) {
       std::cerr << "Failed to open OpenAL device!" << std::endl;
@@ -45,13 +49,14 @@ namespace BombasticEngine {
     ALenum format;
     ALvoid* data;
     ALsizei size;
-    ALsizei freq;
+    ALfloat freq;
     ALboolean loop;
 
     // Load WAV file using ALUT.
     alGenBuffers(1, &buffer);
-    if (alGetError() != AL_NO_ERROR) {
-      std::cerr << "Failed to generate OpenAL buffer!" << std::endl;
+    ALenum error = alGetError();
+    if (error != AL_NO_ERROR) {
+      std::cerr << "Failed to generate OpenAL buffer: " << alGetString(error) << std::endl;
       return false;
     }
 
@@ -61,8 +66,14 @@ namespace BombasticEngine {
       return false;
     }
 
-    alBufferData(buffer, format, data, size, freq);
-    alutUnloadMemory(data, size, freq);
+    alBufferData(buffer, format, data, size, static_cast<ALsizei>(freq));
+    error = alGetError();
+    if (error != AL_NO_ERROR) {
+      std::cerr << "Failed to load sound file " << filePath << " into OpenAL buffer: " << alGetString(error) << std::endl;
+      return false;
+    }
+    // alutUnloadMemory(data, size, freq);
+    free(data);
 
     // Generate a source for the sound.
     ALuint source;
@@ -129,8 +140,9 @@ namespace BombasticEngine {
   }
 
   // setListenerOrientation implementation.
-  void AudioManager::setListenerOrientation(float x, float y, float z) {
-    alListener3f(AL_ORIENTATION, x, y, z);
+  void AudioManager::setListenerOrientation(float atX, float atY, float atZ, float upX, float upY, float upZ) {
+    ALfloat orientation[] = { atX, atY, atZ, upX, upY, upZ };
+    alListenerfv(AL_ORIENTATION, orientation);
   }
 
 } // namespace BombasticEngine

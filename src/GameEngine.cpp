@@ -7,7 +7,9 @@
 namespace BombasticEngine {
 
   // Constructor implementation
-  GameEngine::GameEngine(int width, int height) : renderingEngine(width, height), assetManager(renderingEngine.getRenderer()) {}
+  GameEngine::GameEngine(int width, int height) : renderingEngine(width, height)/*, assetManager(renderingEngine.getRenderer())*/ {
+    audioManager.initialize();
+  }
 
   // The Start method is the entry point of the engine.
   // It sequentially calls Initialize, GameLoop, and Shutdown methods to control the engine's lifecycle.
@@ -26,6 +28,9 @@ namespace BombasticEngine {
       std::cerr << "Rendering Engine could not be created! SDL Error: " << SDL_GetError() << std::endl;
       return;
     }
+
+    // Load obama_sound.wav into the audioManager.
+    audioManager.loadSound("Obama_Sound", "../src/assets/obama_sound.wav");
   }
 
   // The GameLoop method contains the main loop where the game logic, updates, and rendering occur.
@@ -43,9 +48,6 @@ namespace BombasticEngine {
       renderingEngine.display();  // Display the renderer.
       renderingEngine.delay(16);  // Add a delay to cap the frame rate.
       
-      // Audio logic
-      audioManager.loadSound("Obama_Sound", "../src/assets/obama_sound.wav");
-      audioManager.playSound("Obama_Intro", true);
 
       // Input logic
       inputManager.update();  // Update the input manager.
@@ -55,6 +57,17 @@ namespace BombasticEngine {
       }
       if (inputManager.isKeyPressed(SDL_SCANCODE_SPACE)) {
         std::cout << "Spacebar pressed!" << std::endl;
+        audioManager.playSound("Obama_Sound", false);
+      }
+      // if L is pressed, play Obama_Sound in a loop.
+      if (inputManager.isKeyPressed(SDL_SCANCODE_L)) {
+        std::cout << "L pressed!" << std::endl;
+        audioManager.playSound("Obama_Sound", true);
+      }
+      // if P is pressed, pause Obama_Sound.
+      if (inputManager.isKeyPressed(SDL_SCANCODE_P)) {
+        std::cout << "P pressed!" << std::endl;
+        audioManager.pauseSound("Obama_Sound");
       }
 
       if (isRunning == false) {

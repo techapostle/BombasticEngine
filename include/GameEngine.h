@@ -54,7 +54,7 @@ private:
     // RenderingEngine instance: Initializes SDL, creates a window, and renders textures.
     RenderingEngine renderingEngine;
     // AssetManager instance: Loads and stores assets.
-    AssetManager assetManager;
+    // AssetManager assetManager;
     // AudioManager instance: Loads and plays audio files.
     AudioManager audioManager;
 };

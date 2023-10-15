@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add the executable
 add_executable(
-  BombastEngine
+  BombasticEngine
   src/main.cpp
   src/GameEngine.cpp
   src/RenderingEngine.cpp
@@ -22,22 +22,8 @@ add_executable(
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED NO_MODULE)
 find_package(OpenAL REQUIRED)
-
-# Detect OS
-if(WIN32)
-    # Windows-specific settings
-    # Assuming you have ALUT installed in a directory like C:/ALUT
-    include_directories("C:/ALUT/include")
-    link_directories("C:/ALUT/lib")
-elseif(UNIX AND NOT APPLE)
-    # Linux/Unix-specific settings
-    include_directories(/usr/include/AL)
-elseif(APPLE)
-    # macOS-specific settings
-    # Adjust paths as needed for macOS
-    include_directories(/path/to/mac/include)
-    link_directories(/path/to/mac/lib)
-endif()
+# FreeALUT is deprecated, but it's the only way to get ALUT on Linux
+# find_package(FreeALUT REQUIRED)
 
 # Include directories
 target_include_directories(BombasticEngine PUBLIC 
@@ -46,6 +32,7 @@ target_include_directories(BombasticEngine PUBLIC
   ${SDL2_INCLUDE_DIRS}
   ${SDL2_IMAGE_INCLUDE_DIRS}
   ${OPENAL_INCLUDE_DIR}
+  /usr/include/AL
 )
 
 # Link libraries
@@ -53,5 +40,6 @@ target_link_libraries(BombasticEngine
   ${SDL2_LIBRARIES} 
   SDL2_image
   ${OPENAL_LIBRARY} 
+  # ${ALUT_LIBRARIES}
   alut
 ) 
