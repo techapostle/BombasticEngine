@@ -21,6 +21,7 @@ namespace BombasticEngine {
     alcMakeContextCurrent(nullptr);
     alcDestroyContext(context);
     alcCloseDevice(device);
+    alutExit();
   }
 
   // Initialize implementation.
@@ -62,8 +63,8 @@ namespace BombasticEngine {
 
     data = alutLoadMemoryFromFile(filePath.c_str(), &format, &size, &freq);
     if (!data) {
-      std::cerr << "Failed to load sound file " << filePath << "!" << std::endl;
-      return false;
+        std::cerr << "Failed to load sound file " << filePath << "! ALUT Error: " << alutGetErrorString(alutGetError()) << std::endl;
+        return false;
     }
 
     alBufferData(buffer, format, data, size, static_cast<ALsizei>(freq));
@@ -72,7 +73,6 @@ namespace BombasticEngine {
       std::cerr << "Failed to load sound file " << filePath << " into OpenAL buffer: " << alGetString(error) << std::endl;
       return false;
     }
-    // alutUnloadMemory(data, size, freq);
     free(data);
 
     // Generate a source for the sound.
