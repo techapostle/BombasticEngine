@@ -1,4 +1,9 @@
-WELCOME, to the Bombastic Engine source repository! This engine implements advanced 2D graphics and physics, with 3D support planned for the future. Feel free to contribute, update documentation, or just take it for a spin. This project is currently in its early stages and may not work as intended. As a work-in-progress engine, I will be continously updating its components to work with the newest technologies once it has a solid foundation. The purpose of this engine is for it to support my indie game developmer arc as I learn and explore the amazing world of video games.
+WELCOME, to the Bombastic Engine source repository! This engine implements advanced 2D graphics and physics, with 3D support planned for the future. Feel free to contribute, update documentation, or just take it for a spin. This project is currently in its early stages and may not work as intended. As a work-in-progress engine, I will be continously updating its components to work with the newest technologies once it has a solid foundation. The purpose of this engine is for it to support my indie game developmer arc as I learn and explore the amazing world of video games.  
+
+### Current Capabilities
+   - Renders a single image of Obama as a texture
+   - Loads a single audio of Obama saying, "My fellow Americans!"
+      - User can play, pause, or loop the loaded audio.
 
 ### Phase 1: Design and Planning
 
